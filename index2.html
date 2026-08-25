@@ -1,0 +1,2309 @@
+# LURA INFORMÁTICA — SITE PROFISSIONAL V2
+
+> **Arquivo:** `index.html`
+> **Tecnologia:** HTML + CSS + JavaScript
+> **Hospedagem:** pode ser publicada em hospedagem estática gratuita.
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lura Informática | Tecnologia, Manutenção e Assistência Técnica</title>
+
+<meta name="description"
+content="Lura Informática - Assistência técnica especializada em computadores, notebooks, celulares, limpeza, formatação, upgrades e acessórios.">
+
+<meta name="keywords"
+content="informática, assistência técnica, computador, notebook, celular, manutenção, limpeza de PC, formatação, upgrade">
+
+<meta name="author" content="Lura Informática">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#050608;
+    --bg2:#0a0d12;
+    --card:#0d1117;
+    --card2:#11161e;
+    --border:#202733;
+    --primary:#6c63ff;
+    --primary2:#8b84ff;
+    --text:#ffffff;
+    --muted:#8b95a5;
+    --success:#25d366;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050608;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#292f3a;
+    border-radius:10px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    z-index:999;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    background:rgba(5,6,8,.78);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    transition:.3s;
+}
+
+header.scrolled{
+    background:rgba(5,6,8,.96);
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+}
+
+.logo{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:-.5px;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.logo small{
+    display:block;
+    font-size:8px;
+    color:#697386;
+    letter-spacing:3px;
+    margin-top:3px;
+}
+
+nav{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+nav a{
+    font-size:14px;
+    color:#aeb6c4;
+    font-weight:600;
+    transition:.3s;
+    position:relative;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:var(--primary);
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+.nav-button{
+    background:var(--primary);
+    padding:12px 18px;
+    border-radius:8px;
+    color:white!important;
+}
+
+.nav-button::after{
+    display:none;
+}
+
+.menu{
+    display:none;
+    font-size:27px;
+    cursor:pointer;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+    padding:150px 7% 80px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(108,99,255,.20),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 90%,
+            rgba(0,140,255,.08),
+            transparent 35%
+        );
+}
+
+.grid-bg{
+    position:absolute;
+    inset:0;
+    opacity:.15;
+
+    background-image:
+        linear-gradient(#ffffff0b 1px,transparent 1px),
+        linear-gradient(90deg,#ffffff0b 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:9px 15px;
+
+    border:1px solid var(--border);
+    border-radius:50px;
+
+    background:#0b0e13;
+
+    color:#aeb6c4;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+}
+
+.badge i{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--success);
+    box-shadow:0 0 12px var(--success);
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,82px);
+    line-height:.98;
+    letter-spacing:-4px;
+    margin-bottom:28px;
+}
+
+.gradient-text{
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #6c63ff,
+        #9d98ff
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+
+    padding:15px 23px;
+
+    border-radius:9px;
+
+    font-weight:700;
+    font-size:14px;
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff;
+
+    box-shadow:
+        0 10px 30px rgba(108,99,255,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 15px 40px rgba(108,99,255,.4);
+}
+
+.btn-outline{
+    border:1px solid var(--border);
+    background:#0b0e13;
+    color:#fff;
+}
+
+.btn-outline:hover{
+    border-color:var(--primary);
+    transform:translateY(-3px);
+}
+
+/* =====================================================
+   HERO STATS
+===================================================== */
+
+.hero-stats{
+    display:flex;
+    gap:35px;
+    margin-top:55px;
+}
+
+.stat{
+    border-left:1px solid #303744;
+    padding-left:18px;
+}
+
+.stat strong{
+    display:block;
+    font-size:24px;
+}
+
+.stat span{
+    color:#687282;
+    font-size:12px;
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section{
+    padding:110px 7%;
+}
+
+.section-head{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.eyebrow{
+    color:var(--primary2);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.section-head h2{
+    font-size:43px;
+    letter-spacing:-1.5px;
+    margin-top:12px;
+}
+
+.section-head p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-top:15px;
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services{
+    background:var(--bg2);
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #10151d,
+            #090c11
+        );
+
+    border:1px solid var(--border);
+    border-radius:16px;
+
+    padding:30px;
+
+    transition:.35s;
+}
+
+.service:hover{
+    transform:translateY(-8px);
+    border-color:#4d46b7;
+}
+
+.service-number{
+    position:absolute;
+    right:20px;
+    top:20px;
+
+    color:#252b35;
+    font-size:32px;
+    font-weight:900;
+}
+
+.icon{
+    width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:#171b28;
+
+    font-size:26px;
+
+    margin-bottom:22px;
+}
+
+.service h3{
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.service p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-visual{
+    min-height:450px;
+
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(108,99,255,.18),
+            transparent 45%
+        ),
+        #090c11;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.tech-circle{
+    width:260px;
+    height:260px;
+
+    border:1px solid #353b4a;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:90px;
+
+    box-shadow:
+        0 0 80px rgba(108,99,255,.13);
+}
+
+.about-content h2{
+    font-size:44px;
+    line-height:1.1;
+    margin:12px 0 22px;
+}
+
+.about-content h2 span{
+    color:var(--primary);
+}
+
+.about-content p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.check-list{
+    display:grid;
+    gap:13px;
+    margin-top:28px;
+}
+
+.check{
+    display:flex;
+    gap:12px;
+    color:#cbd2dc;
+    font-size:14px;
+}
+
+.check b{
+    color:var(--primary2);
+}
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products{
+    background:var(--bg2);
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+    gap:18px;
+}
+
+.product{
+    background:#0d1117;
+    border:1px solid var(--border);
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-6px);
+    border-color:#4d46b7;
+}
+
+.product-image{
+    height:180px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #161b25,
+            #0b0e13
+        );
+
+    font-size:65px;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    font-size:16px;
+    margin-bottom:9px;
+}
+
+.product-info p{
+    color:#737d8c;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.product-price{
+    color:var(--primary2);
+    font-weight:900;
+    font-size:21px;
+    margin:17px 0;
+}
+
+/* =====================================================
+   PRICING
+===================================================== */
+
+.pricing{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:20px;
+}
+
+.price-card{
+    background:#0d1117;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:32px;
+}
+
+.price-card.featured{
+    border-color:var(--primary);
+    box-shadow:
+        0 0 50px rgba(108,99,255,.08);
+}
+
+.price-label{
+    color:#8d96a6;
+    font-size:13px;
+}
+
+.price-card h3{
+    font-size:22px;
+    margin:12px 0;
+}
+
+.price{
+    font-size:38px;
+    font-weight:900;
+    color:var(--primary2);
+}
+
+.price-card ul{
+    list-style:none;
+    margin:25px 0;
+    display:grid;
+    gap:13px;
+}
+
+.price-card li{
+    color:#8b95a5;
+    font-size:14px;
+}
+
+.price-card li::before{
+    content:"✓";
+    color:var(--primary2);
+    margin-right:9px;
+}
+
+/* =====================================================
+   TESTIMONIALS
+===================================================== */
+
+.testimonials{
+    background:var(--bg2);
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:18px;
+}
+
+.testimonial{
+    background:#0d1117;
+    border:1px solid var(--border);
+    padding:28px;
+    border-radius:15px;
+}
+
+.stars{
+    color:#ffc107;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.testimonial p{
+    color:#9ba4b2;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.client{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:25px;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+
+    background:#1a1f2a;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.client strong{
+    font-size:14px;
+}
+
+.client span{
+    display:block;
+    color:#697384;
+    font-size:12px;
+    margin-top:3px;
+}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-content h2{
+    font-size:44px;
+    margin:12px 0 20px;
+}
+
+.contact-content h2 span{
+    color:var(--primary);
+}
+
+.contact-content p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.contact-list{
+    display:grid;
+    gap:18px;
+}
+
+.contact-item{
+    display:flex;
+    gap:14px;
+    align-items:center;
+}
+
+.contact-icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#10151d;
+    border:1px solid var(--border);
+    border-radius:10px;
+}
+
+.contact-item span{
+    display:block;
+    color:#697384;
+    font-size:13px;
+    margin-top:3px;
+}
+
+.form{
+    background:#0d1117;
+    border:1px solid var(--border);
+    padding:30px;
+    border-radius:18px;
+}
+
+.form h3{
+    margin-bottom:20px;
+}
+
+.form input,
+.form textarea,
+.form select{
+    width:100%;
+
+    background:#080b10;
+    border:1px solid var(--border);
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    outline:none;
+
+    margin-bottom:14px;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus{
+    border-color:var(--primary);
+}
+
+.form textarea{
+    height:130px;
+    resize:none;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:40px 7%;
+    background:#030405;
+    border-top:1px solid #171b22;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    align-items:center;
+}
+
+.footer-logo{
+    font-size:20px;
+    font-weight:900;
+}
+
+.footer-logo span{
+    color:var(--primary);
+}
+
+.footer-text{
+    color:#596271;
+    font-size:13px;
+}
+
+.socials{
+    display:flex;
+    gap:10px;
+}
+
+.social{
+    width:40px;
+    height:40px;
+
+    border:1px solid var(--border);
+    border-radius:8px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:.3s;
+}
+
+.social:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:var(--success);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    z-index:999;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.4);
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+.top{
+    position:fixed;
+    right:25px;
+    bottom:100px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:9px;
+
+    background:#151a22;
+    border:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:998;
+}
+
+.top.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .7s, transform .7s;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:750px){
+
+    header{
+        padding:0 5%;
+    }
+
+    nav{
+        position:absolute;
+        top:80px;
+        left:0;
+
+        width:100%;
+
+        background:#080b10;
+
+        border-bottom:1px solid var(--border);
+
+        display:none;
+
+        flex-direction:column;
+
+        padding:25px;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .nav-button{
+        text-align:center;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .hero{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero-stats{
+        gap:18px;
+        flex-wrap:wrap;
+    }
+
+    .service-grid,
+    .product-grid,
+    .pricing,
+    .testimonial-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-head h2{
+        font-size:34px;
+    }
+
+    .about-content h2,
+    .contact-content h2{
+        font-size:35px;
+    }
+
+    .footer-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="header">
+
+    <a href="#inicio" class="logo">
+
+        LURA<span>INFORMÁTICA</span>
+
+        <small>TECNOLOGIA &amp; ASSISTÊNCIA</small>
+
+    </a>
+
+
+    <nav id="nav">
+
+        <a href="#inicio">Início</a>
+
+        <a href="#servicos">Serviços</a>
+
+        <a href="#sobre">Sobre</a>
+
+        <a href="#produtos">Produtos</a>
+
+        <a href="#precos">Preços</a>
+
+        <a href="#contato">Contato</a>
+
+        <a
+            class="nav-button"
+            href="https://wa.me/5511934244276"
+            target="_blank">
+
+            WhatsApp
+
+        </a>
+
+    </nav>
+
+
+    <div class="menu" onclick="toggleMenu()">
+
+        ☰
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="inicio">
+
+<div class="grid-bg"></div>
+
+<div class="hero-content reveal">
+
+    <div class="badge">
+
+        <i></i>
+
+        Atendimento e assistência técnica
+
+    </div>
+
+
+    <h1>
+
+        Sua tecnologia<br>
+
+        <span class="gradient-text">
+            em boas mãos.
+        </span>
+
+    </h1>
+
+
+    <p>
+
+        Manutenção, reparos, upgrades e soluções
+        para computadores, notebooks e celulares.
+        Na Lura Informática, seu equipamento recebe
+        o cuidado que merece.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+        <a
+            href="https://wa.me/5511934244276"
+            target="_blank"
+            class="btn btn-primary">
+
+            💬 Solicitar orçamento
+
+        </a>
+
+
+        <a
+            href="#servicos"
+            class="btn btn-outline">
+
+            Conhecer serviços →
+
+        </a>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+        <div class="stat">
+
+            <strong>100%</strong>
+
+            <span>Compromisso</span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>⚡</strong>
+
+            <span>Agilidade</span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>🛠️</strong>
+
+            <span>Profissional</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVIÇOS
+===================================================== -->
+
+<section class="services" id="servicos">
+
+<div class="section-head reveal">
+
+    <span class="eyebrow">
+        Nossos serviços
+    </span>
+
+    <h2>
+        Soluções para sua tecnologia
+    </h2>
+
+    <p>
+        Do diagnóstico ao reparo, cuidamos do seu
+        equipamento com atenção e profissionalismo.
+    </p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<div class="service reveal">
+
+<span class="service-number">01</span>
+
+<div class="icon">🖥️</div>
+
+<h3>Manutenção de PC</h3>
+
+<p>
+Diagnóstico, reparos, manutenção preventiva,
+otimização e solução de problemas.
+</p>
+
+</div>
+
+
+<div class="service reveal">
+
+<span class="service-number">02</span>
+
+<div class="icon">💻</div>
+
+<h3>Notebook</h3>
+
+<p>
+Manutenção e diagnóstico para notebooks,
+incluindo limpeza e upgrades.
+</p>
+
+</div>
+
+
+<div class="service reveal">
+
+<span class="service-number">03</span>
+
+<div class="icon">📱</div>
+
+<h3>Celulares</h3>
+
+<p>
+Avaliação e manutenção de smartphones
+e dispositivos móveis.
+</p>
+
+</div>
+
+
+<div class="service reveal">
+
+<span class="service-number">04</span>
+
+<div class="icon">🧹</div>
+
+<h3>Limpeza interna</h3>
+
+<p>
+Remoção de poeira, limpeza dos componentes
+e troca de pasta térmica.
+</p>
+
+</div>
+
+
+<div class="service reveal">
+
+<span class="service-number">05</span>
+
+<div class="icon">⚙️</div>
+
+<h3>Formatação</h3>
+
+<p>
+Formatação, instalação e configuração
+do sistema operacional.
+</p>
+
+</div>
+
+
+<div class="service reveal">
+
+<span class="service-number">06</span>
+
+<div class="icon">🚀</div>
+
+<h3>Upgrade</h3>
+
+<p>
+SSD, memória RAM e outros componentes
+para aumentar o desempenho.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SOBRE
+===================================================== -->
+
+<section id="sobre">
+
+<div class="about">
+
+
+<div class="about-visual reveal">
+
+    <div class="tech-circle">
+        🖥️
+    </div>
+
+</div>
+
+
+<div class="about-content reveal">
+
+<span class="eyebrow">
+    Sobre a empresa
+</span>
+
+<h2>
+    Tecnologia com<br>
+    <span>confiança.</span>
+</h2>
+
+<p>
+A Lura Informática nasceu com o objetivo de oferecer
+serviços de tecnologia com atendimento próximo,
+transparente e profissional.
+</p>
+
+<p>
+Seja para resolver um problema ou melhorar o desempenho
+do seu equipamento, estamos preparados para ajudar.
+</p>
+
+
+<div class="check-list">
+
+<div class="check">
+<b>✓</b>
+Diagnóstico antes do serviço
+</div>
+
+<div class="check">
+<b>✓</b>
+Orçamento transparente
+</div>
+
+<div class="check">
+<b>✓</b>
+Manutenção profissional
+</div>
+
+<div class="check">
+<b>✓</b>
+Atendimento personalizado
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUTOS
+===================================================== -->
+
+<section class="products" id="produtos">
+
+<div class="section-head reveal">
+
+<span class="eyebrow">
+    Produtos
+</span>
+
+<h2>
+    Acessórios e tecnologia
+</h2>
+
+<p>
+    Consulte disponibilidade e preços pelo WhatsApp.
+</p>
+
+</div>
+
+
+<div class="product-grid">
+
+
+<div class="product reveal">
+
+<div class="product-image">
+⌨️
+</div>
+
+<div class="product-info">
+
+<h3>Teclados Gamer</h3>
+
+<p>
+Teclados para jogos e uso diário.
+</p>
+
+<div class="product-price">
+A consultar
+</div>
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="btn btn-outline">
+
+Consultar
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="product reveal">
+
+<div class="product-image">
+🖱️
+</div>
+
+<div class="product-info">
+
+<h3>Mouse Gamer</h3>
+
+<p>
+Precisão e desempenho para gamers.
+</p>
+
+<div class="product-price">
+A consultar
+</div>
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="btn btn-outline">
+
+Consultar
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="product reveal">
+
+<div class="product-image">
+🎧
+</div>
+
+<div class="product-info">
+
+<h3>Headsets</h3>
+
+<p>
+Áudio para jogos, música e comunicação.
+</p>
+
+<div class="product-price">
+A consultar
+</div>
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="btn btn-outline">
+
+Consultar
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="product reveal">
+
+<div class="product-image">
+💾
+</div>
+
+<div class="product-info">
+
+<h3>SSD</h3>
+
+<p>
+Mais velocidade para seu computador.
+</p>
+
+<div class="product-price">
+A consultar
+</div>
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="btn btn-outline">
+
+Consultar
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PREÇOS
+===================================================== -->
+
+<section id="precos">
+
+<div class="section-head reveal">
+
+<span class="eyebrow">
+    Serviços
+</span>
+
+<h2>
+    Tabela de valores
+</h2>
+
+<p>
+    Valores iniciais. O orçamento final depende
+    do equipamento e do serviço necessário.
+</p>
+
+</div>
+
+
+<div class="pricing">
+
+
+<div class="price-card reveal">
+
+<span class="price-label">
+Manutenção
+</span>
+
+<h3>
+Limpeza de PC
+</h3>
+
+<div class="price">
+R$ 80
+</div>
+
+<ul>
+
+<li>Limpeza interna</li>
+
+<li>Remoção de poeira</li>
+
+<li>Organização básica</li>
+
+<li>Verificação geral</li>
+
+</ul>
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="btn btn-outline">
+
+Solicitar orçamento
+
+</a>
+
+</div>
+
+
+<div class="price-card featured reveal">
+
+<span class="price-label">
+Mais procurado
+</span>
+
+<h3>
+Formatação
+</h3>
+
+<div class="price">
+R$ 100
+</div>
+
+<ul>
+
+<li>Formatação</li>
+
+<li>Instalação do sistema</li>
+
+<li>Drivers</li>
+
+<li>Configuração inicial</li>
+
+</ul>
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="btn btn-primary">
+
+Solicitar orçamento
+
+</a>
+
+</div>
+
+
+<div class="price-card reveal">
+
+<span class="price-label">
+Avaliação
+</span>
+
+<h3>
+Diagnóstico
+</h3>
+
+<div class="price">
+R$ 50
+</div>
+
+<ul>
+
+<li>Análise do equipamento</li>
+
+<li>Identificação do problema</li>
+
+<li>Avaliação de componentes</li>
+
+<li>Orçamento</li>
+
+</ul>
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="btn btn-outline">
+
+Solicitar orçamento
+
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DEPOIMENTOS
+===================================================== -->
+
+<section class="testimonials">
+
+<div class="section-head reveal">
+
+<span class="eyebrow">
+    Clientes
+</span>
+
+<h2>
+    O que nossos clientes dizem
+</h2>
+
+<p>
+    Adicione aqui avaliações reais dos seus clientes.
+</p>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+
+<div class="testimonial reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Serviço muito bom, atendimento rápido e meu
+computador ficou muito melhor depois da manutenção.”
+</p>
+
+<div class="client">
+
+<div class="avatar">
+👤
+</div>
+
+<div>
+
+<strong>Cliente</strong>
+
+<span>Manutenção de PC</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Gostei bastante do atendimento. Explicaram o problema
+e passaram o orçamento antes de fazer o serviço.”
+</p>
+
+<div class="client">
+
+<div class="avatar">
+👤
+</div>
+
+<div>
+
+<strong>Cliente</strong>
+
+<span>Formatação</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“Ótimo atendimento e serviço. Recomendo para quem
+precisa de manutenção no computador.”
+</p>
+
+<div class="client">
+
+<div class="avatar">
+👤
+</div>
+
+<div>
+
+<strong>Cliente</strong>
+
+<span>Limpeza</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTATO
+===================================================== -->
+
+<section id="contato">
+
+<div class="contact">
+
+
+<div class="contact-content reveal">
+
+<span class="eyebrow">
+    Fale conosco
+</span>
+
+<h2>
+    Vamos cuidar da sua <span>tecnologia.</span>
+</h2>
+
+<p>
+Preencha o formulário e envie sua solicitação
+diretamente pelo WhatsApp.
+</p>
+
+
+<div class="contact-list">
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+📱
+</div>
+
+<div>
+
+<strong>WhatsApp</strong>
+
+<span>
+(11) 93424-4276
+</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+🛠️
+</div>
+
+<div>
+
+<strong>Atendimento</strong>
+
+<span>
+Assistência técnica
+</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+📍
+</div>
+
+<div>
+
+<strong>Localização</strong>
+
+<span>
+Consulte nossa localização
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<form
+class="form reveal"
+onsubmit="sendWhatsApp(event)">
+
+<h3>
+Solicite um orçamento
+</h3>
+
+
+<input
+id="name"
+type="text"
+placeholder="Seu nome"
+required>
+
+
+<input
+id="phone"
+type="tel"
+placeholder="Seu telefone"
+required>
+
+
+<select id="service">
+
+<option value="Não informado">
+Escolha o serviço
+</option>
+
+<option>Manutenção de PC</option>
+
+<option>Notebook</option>
+
+<option>Celular</option>
+
+<option>Limpeza</option>
+
+<option>Formatação</option>
+
+<option>Upgrade</option>
+
+<option>Outro</option>
+
+</select>
+
+
+<textarea
+id="message"
+placeholder="Descreva o problema ou serviço que precisa..."
+required></textarea>
+
+
+<button
+class="btn btn-primary"
+type="submit">
+
+Enviar pelo WhatsApp
+
+</button>
+
+</form>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-content">
+
+
+<div>
+
+<div class="footer-logo">
+
+LURA<span>INFORMÁTICA</span>
+
+</div>
+
+<p class="footer-text">
+Tecnologia, manutenção e confiança.
+</p>
+
+</div>
+
+
+<div class="socials">
+
+<a class="social"
+href="#"
+title="Instagram">
+
+📷
+
+</a>
+
+<a class="social"
+href="https://wa.me/5511934244276"
+target="_blank"
+title="WhatsApp">
+
+💬
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<p
+class="footer-text"
+style="text-align:center;margin-top:30px">
+
+© 2026 Lura Informática.
+Todos os direitos reservados.
+
+</p>
+
+</footer>
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+href="https://wa.me/5511934244276"
+target="_blank"
+class="whatsapp"
+title="WhatsApp">
+
+💬
+
+</a>
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<a
+href="#inicio"
+class="top"
+id="top">
+
+↑
+
+</a>
+
+
+<script>
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function toggleMenu(){
+
+    document
+    .getElementById("nav")
+    .classList
+    .toggle("active");
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+window.addEventListener("scroll",function(){
+
+    const header =
+        document.getElementById("header");
+
+    const top =
+        document.getElementById("top");
+
+    if(window.scrollY > 50){
+
+        header.classList.add("scrolled");
+
+        top.classList.add("show");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+        top.classList.remove("show");
+
+    }
+
+});
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+},
+
+{
+threshold:.12
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
+
+
+/* =====================================================
+   WHATSAPP FORM
+===================================================== */
+
+function sendWhatsApp(event){
+
+event.preventDefault();
+
+
+const name =
+document.getElementById("name").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const service =
+document.getElementById("service").value;
+
+const message =
+document.getElementById("message").value;
+
+
+const text =
+
+"Olá! Vim pelo site da Lura Informática.%0A%0A" +
+
+"Nome: " + encodeURIComponent(name) +
+
+"%0ATelefone: " +
+encodeURIComponent(phone) +
+
+"%0AServiço: " +
+encodeURIComponent(service) +
+
+"%0A%0AMensagem:%0A" +
+encodeURIComponent(message);
+
+
+window.open(
+
+"https://wa.me/5511934244276?text=" + text,
+
+"_blank"
+
+);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```
+
+### O que você precisa alterar
+
+Procure no arquivo:
+
+```text
+5511934244276
+```
+
+e substitua pelo WhatsApp comercial da Lura Informática.
+
+Também altere:
+
+```text
+Lura Informática
+```
+
+caso queira usar outro nome comercial.
+
+No Instagram, substitua:
+
+```html
+<a class="social" href="#" title="Instagram">
+```
+
+pelo endereço do Instagram da empresa.
+
+E troque os exemplos de depoimentos pelos **depoimentos reais dos seus clientes**.
+
+### Estrutura recomendada
+
+Depois, podemos separar o projeto assim:
+
+```text
+lura-informatica/
+│
+├── index.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── script.js
+│
+├── imagens/
+│   ├── logo.png
+│   ├── pc.jpg
+│   ├── notebook.jpg
+│   └── celular.jpg
+│
+└── paginas/
+    ├── servicos.html
+    ├── produtos.html
+    └── contato.html
+```
+
+Isso deixa o projeto mais organizado e preparado para crescer.
+
+### Próximo nível
+
+Para a **V3**, eu recomendo transformar o site em uma verdadeira plataforma da Lura Informática, com:
+
+**🏠 Site + 🛒 Loja + 🔧 Ordem de serviço + 👤 Área do cliente + 📊 Painel administrativo + 💳 Mercado Pago + 📦 Estoque + 📱 WhatsApp**
+
+Assim você poderia cadastrar um computador de cliente, gerar uma **ordem de serviço**, acompanhar o status e avisar automaticamente o cliente pelo WhatsApp.
